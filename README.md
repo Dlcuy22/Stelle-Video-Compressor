@@ -2,6 +2,9 @@
 
 A simple and user-friendly video compression tool built with WPF and FFmpeg. Compress your videos with modern dark UI and real-time progress tracking.
 
+![App preview1](images/App_github.png)
+![App preview2](images/App_github2.png)
+
 ## Features
 
 - **Multiple Quality Presets**: High quality (CRF 23), Balanced (CRF 26), High compression (CRF 30), Maximum compression (CRF 35 + Scale)
