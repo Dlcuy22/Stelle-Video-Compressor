@@ -13,7 +13,7 @@ A simple and user-friendly video compression tool built with WPF and FFmpeg. Com
 
 ## Download
 
-Download the latest release from the [Releases](https://github.com/Dlcuy22/StelleVideoCompressorGUI/releases) page. The release includes:
+Download the latest release from the [Releases](https://github.com/Dlcuy22/Stelle-Video-Compressor/releases) page. The release includes:
 
 - Complete standalone application
 - Built-in FFmpeg and FFprobe executables
@@ -58,8 +58,8 @@ These executables are bundled with the application to provide a complete, ready-
 ### Build Steps
 1. Clone the repository
 ```bash
-git clone https://github.com/Dlcuy22/StelleVideoCompressorGUI
-cd StelleVideoCompressorGUI
+git clone https://github.com/Dlcuy22/Stelle-Video-Compressor
+cd Stelle-Video-Compressor
 ```
 
 2. Build the project
