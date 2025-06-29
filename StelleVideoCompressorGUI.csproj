@@ -5,7 +5,7 @@
     <TargetFramework>net9.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
-    <ApplicationIcon>icon.ico</ApplicationIcon>
+    <ApplicationIcon>Assets/logo.ico</ApplicationIcon>
     <AssemblyTitle>Stelle Video Compressor</AssemblyTitle>
     <AssemblyDescription>Simple video compression tool using FFmpeg</AssemblyDescription>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
