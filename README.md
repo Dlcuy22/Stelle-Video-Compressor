@@ -59,7 +59,7 @@ These executables are bundled with the application to provide a complete, ready-
 1. Clone the repository
 ```bash
 git clone https://github.com/Dlcuy22/StelleVideoCompressorGUI
-cd stelle-video-compressor
+cd StelleVideoCompressorGUI
 ```
 
 2. Build the project
