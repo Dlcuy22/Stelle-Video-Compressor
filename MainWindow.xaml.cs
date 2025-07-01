@@ -3,9 +3,7 @@ using System;
 using System.IO;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Documents;
-using System.Windows.Media;
+using StelleVideoCompressorGUI.Pages;
 using StelleVideoCompressorGUI.Models;
 using StelleVideoCompressorGUI.Services;
 
@@ -83,10 +81,10 @@ namespace StelleVideoCompressorGUI
                 }
                 else
                 {
-                    VideoInfoTextBlock.Text = "❌ Failed to analyze video. Please check if the file is valid and FFmpeg is installed.";
+                    VideoInfoTextBlock.Text = "❌ Failed to analyze video. Please check if the file is valid and FFmpeg.exe and ffprobe.exe is in the install folder!";
                     StatusTextBlock.Text = "❌ Failed to analyze video";
                     LogMessage("❌ Failed to analyze video.");
-                    LogMessage("   Make sure FFmpeg is installed and available in PATH.");
+                    LogMessage("   Make sure FFmpeg is in the Install folder.");
                     LogMessage("   Check if the selected file is a valid video file.");
                 }
             }
@@ -117,7 +115,7 @@ namespace StelleVideoCompressorGUI
                 var compressionSettings = GetCompressionSettings();
                 var codecSettings = GetCodecSettings();
                 var audioSettings = GetAudioSettings();
-
+                
                 var outputFile = GenerateOutputFilename(inputFile, compressionSettings.Label, 
                     codecSettings.Name, audioSettings.Suffix);
 
@@ -133,25 +131,28 @@ namespace StelleVideoCompressorGUI
                 {
                     _ffmpegService.ShowSizeComparison(inputFile, outputFile);
                     StatusTextBlock.Text = "🎉 Compression completed successfully!";
+                    var outputWindow = new OutputWindow();
+                    
+                    bool? results = outputWindow.ShowDialog(); // SHOW NEW OUTPUT WINDOW
                     
                     // Ask if user wants to open output folder
-                    var result = MessageBox.Show(
-                        $"🎉 Compression completed successfully!\n\n📁 Output: {Path.GetFileName(outputFile)}\n\nWould you like to open the output folder?",
-                        "Compression Complete",
-                        MessageBoxButton.YesNo,
-                        MessageBoxImage.Information);
-                    
-                    if (result == MessageBoxResult.Yes)
-                    {
-                        try
-                        {
-                            System.Diagnostics.Process.Start("explorer.exe", $"/select,\"{outputFile}\"");
-                        }
-                        catch (Exception ex)
-                        {
-                            LogMessage($"❌ Failed to open folder: {ex.Message}");
-                        }
-                    }
+                    // var result = MessageBox.Show(
+                    //     $"🎉 Compression completed successfully!\n\n📁 Output: {Path.GetFileName(outputFile)}\n\nWould you like to open the output folder?",
+                    //     "Compression Complete",
+                    //     MessageBoxButton.YesNo,
+                    //     MessageBoxImage.Information);
+                    //
+                    // if (result == MessageBoxResult.Yes)
+                    // {
+                    //     try
+                    //     {
+                    //         System.Diagnostics.Process.Start("explorer.exe", $"/select,\"{outputFile}\"");
+                    //     }
+                    //     catch (Exception ex)
+                    //     {
+                    //         LogMessage($"❌ Failed to open folder: {ex.Message}");
+                    //     }
+                    // }
                 }
                 else
                 {

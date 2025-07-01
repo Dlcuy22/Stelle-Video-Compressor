@@ -22,7 +22,7 @@ namespace StelleVideoCompressorGUI.Services
             {
                 var startInfo = new ProcessStartInfo
                 {
-                    FileName = "./ffprobe",
+                    FileName = "./ffprobe.exe",
                     Arguments = $"-v quiet -print_format json -show_streams \"{inputFile}\"",
                     UseShellExecute = false,
                     RedirectStandardOutput = true,
@@ -34,6 +34,7 @@ namespace StelleVideoCompressorGUI.Services
                 if (process == null)
                 {
                     LogReceived?.Invoke("Failed to start ffprobe process");
+                    LogReceived?.Invoke(" -> Make sure you have ffprobe.exe in install folder.");
                     return videoInfo;
                 }
 
@@ -121,7 +122,7 @@ namespace StelleVideoCompressorGUI.Services
 
                 var startInfo = new ProcessStartInfo
                 {
-                    FileName = "./ffmpeg",
+                    FileName = "./ffmpeg.exe",
                     Arguments = string.Join(" ", args),
                     UseShellExecute = false,
                     RedirectStandardOutput = true,
@@ -133,6 +134,7 @@ namespace StelleVideoCompressorGUI.Services
                 if (process == null)
                 {
                     LogReceived?.Invoke("Failed to start ffmpeg process");
+                    LogReceived?.Invoke(" -> Make sure you have ffmpeg.exe in install folder");
                     return false;
                 }
 

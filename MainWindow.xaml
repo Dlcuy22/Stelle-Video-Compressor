@@ -19,6 +19,7 @@
         <SolidColorBrush x:Key="AccentGreenHover" Color="#27ae60"/>
         <SolidColorBrush x:Key="InputBackground" Color="#3a3a3a"/>
         <SolidColorBrush x:Key="LogBackground" Color="#252525"/>
+        <SolidColorBrush x:Key="OutputGradient" Color="LightGray" />
 
         <!-- Modern Button Style -->
         <Style x:Key="ModernButton" TargetType="Button">
@@ -493,5 +494,6 @@
                     Click="CompressButton_Click" 
                     IsEnabled="False"/>
         </Grid>
+
     </Grid>
 </Window>
